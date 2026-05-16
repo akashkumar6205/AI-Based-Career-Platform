@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerShield AI — Protect Your Career. Land Your Dream Job.</title>
+  <meta name="description" content="CareerShield AI protects students from fake jobs, scam emails, and ATS rejections. AI-powered resume optimization, interview prep, and scam detection for college students and graduates.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 32 32" width="32" height="32"><path d="M16 2L4 8v8c0 7.18 5.12 13.9 12 15.4C22.88 29.9 28 23.18 28 16V8L16 2z" fill="url(#shield-grad)" opacity="0.9"/><path d="M14 17l-3-3 1.4-1.4L14 14.2l5.6-5.6L21 10l-7 7z" fill="#fff"/><defs><linearGradient id="shield-grad" x1="4" y1="2" x2="28" y2="32"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#34d399"/></linearGradient></defs></svg>
+        <span>CareerShield <span class="logo-ai">AI</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="resume-scanner.html">Resume Scanner</a></li>
+        <li><a href="#scam-detector">Scam Detector</a></li>
+        <li><a href="#universities">For Universities</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <a href="#cta" class="nav-cta">Protect My Career (Free)</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge">🛡️ Trusted by 10,000+ Students Nationwide</div>
+      <h1>A Smarter, Safer<br><span class="gradient-text">Career Guardian<br>for Students</span></h1>
+      <p class="hero-sub">CareerShield AI is your all-in-one career companion — it detects fake job postings &amp; phishing emails, optimizes your resume for ATS bots, and coaches you through mock interviews. All powered by AI. All free to start.</p>
+
+    </div>
+    <div class="hero-scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- THREAT LANDSCAPE / PROBLEM -->
+  <section class="threat" id="threat">
+    <div class="container">
+      <div class="section-label">The Threat Landscape</div>
+      <h2>The Job Market Is a <span class="gradient-text">Minefield.</span></h2>
+      <p class="section-sub">Students are more vulnerable than ever. Here's the reality no one talks about.</p>
+      <div class="threat-grid">
+        <div class="threat-card" data-aos="fade-up">
+          <div class="threat-stat">1 in 4</div>
+          <div class="threat-label">Online job postings are <strong>ghost or fake jobs</strong> designed to harvest personal data or charge bogus fees.</div>
+          <div class="threat-icon-bg">👻</div>
+        </div>
+        <div class="threat-card" data-aos="fade-up" data-delay="100">
+          <div class="threat-stat">300%</div>
+          <div class="threat-label">Increase in <strong>phishing emails targeting graduates</strong> — fake offer letters, malicious links, and identity theft at an all-time high.</div>
+          <div class="threat-icon-bg">📧</div>
+        </div>
+        <div class="threat-card" data-aos="fade-up" data-delay="200">
+          <div class="threat-stat">75%</div>
+          <div class="threat-label">Of resumes are <strong>rejected by ATS bots</strong> before a human ever reads them. Your dream job? It never even saw your name.</div>
+          <div class="threat-icon-bg">🤖</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES — THE SHIELD + THE SWORD -->
+  <section class="features" id="features">
+    <div class="container">
+      <!-- PILLAR 1: THE SHIELD -->
+      <div class="pillar" id="scam-detector">
+        <div class="pillar-header">
+          <div class="pillar-icon shield-icon">🛡️</div>
+          <div>
+            <div class="section-label">Pillar 1</div>
+            <h2>The Shield — <span class="gradient-text">Security</span></h2>
+            <p class="section-sub">Defend yourself against the scams, fakes, and frauds lurking in every inbox and job board.</p>
+          </div>
+        </div>
+        <div class="feature-cards">
+          <div class="feature-card glass" data-aos="fade-right">
+            <div class="feature-card-icon">🔍</div>
+            <h3>Fake Job &amp; Internship Detector</h3>
+            <p>Paste any job link or description and our AI instantly cross-references company registration databases, URL history, domain age, and linguistic red-flag patterns. We'll tell you if that "dream internship" is actually a data-harvesting scam — before you hand over your PAN card.</p>
+            <ul class="feature-checks">
+              <li>Company registration verification</li>
+              <li>URL &amp; domain reputation analysis</li>
+              <li>Language pattern red-flag scoring</li>
+              <li>Ghost job probability rating</li>
+            </ul>
+          </div>
+          <div class="feature-card glass" data-aos="fade-left">
+            <div class="feature-card-icon">📩</div>
+            <h3>Spam &amp; Fake Email Scanner</h3>
+            <p>Got a suspicious "You're hired!" email from a recruiter you've never heard of? Paste or forward it to CareerShield AI. We'll dissect the headers, scan for malicious links, verify sender domains, and expose phishing attempts — so you never click on a trap again.</p>
+            <ul class="feature-checks">
+              <li>Email header &amp; sender verification</li>
+              <li>Malicious link detection</li>
+              <li>Fake offer letter identification</li>
+              <li>Phishing risk score</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PILLAR 2: THE SWORD -->
+      <div class="pillar" id="resume-scanner">
+        <div class="pillar-header">
+          <div class="pillar-icon sword-icon">⚔️</div>
+          <div>
+            <div class="section-label">Pillar 2</div>
+            <h2>The Sword — <span class="gradient-text">Growth</span></h2>
+            <p class="section-sub">Don't just survive the job market — conquer it with AI-powered career tools built for your generation.</p>
+          </div>
+        </div>
+        <div class="feature-cards">
+          <a href="resume-scanner.html" class="feature-card glass feature-card-link" data-aos="fade-right">
+            <div class="feature-card-icon">📄</div>
+            <h3>AI Resume &amp; ATS Optimizer</h3>
+            <p>Upload your resume and a target job description. CareerShield AI will score your ATS compatibility, highlight missing keywords, restructure bullet points for impact, and serve up a tailored version that gets past the bots and into human hands. Beat the algorithm. Get the interview.</p>
+            <ul class="feature-checks">
+              <li>Precise ATS match score (0-100)</li>
+              <li>Missing keyword suggestions</li>
+              <li>Bullet point impact rewriting</li>
+              <li>Tailored resume generation</li>
+            </ul>
+            <span class="feature-card-cta">Try It Now →</span>
+          </a>
+          <div class="feature-card glass" data-aos="fade-left">
+            <div class="feature-card-icon">🎙️</div>
+            <h3>AI Career Coach &amp; Mock Interviews</h3>
+            <p>Our interactive AI coach maps your ideal career path based on your skills, interests, and market demand. Then it drops you into realistic mock interviews — audio or text — with real-time feedback on your answers, body language cues, and confidence level. Walk into every interview battle-tested.</p>
+            <ul class="feature-checks">
+              <li>Personalized career path mapping</li>
+              <li>Audio &amp; text mock interviews</li>
+              <li>Real-time answer feedback</li>
+              <li>Confidence &amp; clarity scoring</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2>Three Steps. <span class="gradient-text">Zero Stress.</span></h2>
+      <p class="section-sub">From upload to action plan in under 60 seconds.</p>
+      <div class="steps-grid">
+        <div class="step-card" data-aos="zoom-in">
+          <div class="step-number">01</div>
+          <div class="step-icon">📤</div>
+          <h3>Upload or Paste</h3>
+          <p>Drop your resume, paste a suspicious job link, or forward a sketchy recruiter email. We accept it all.</p>
+        </div>
+        <div class="step-connector"><svg width="60" height="24" viewBox="0 0 60 24"><path d="M0 12h50m-8-8l8 8-8 8" stroke="url(#arrow-grad)" stroke-width="2" fill="none"/><defs><linearGradient id="arrow-grad" x1="0" y1="0" x2="60" y2="0"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#34d399"/></linearGradient></defs></svg></div>
+        <div class="step-card" data-aos="zoom-in" data-delay="150">
+          <div class="step-number">02</div>
+          <div class="step-icon">⚡</div>
+          <h3>AI Deep Analysis</h3>
+          <p>CareerShield AI runs deep security scans, ATS optimization algorithms, and career-matching intelligence — simultaneously.</p>
+        </div>
+        <div class="step-connector"><svg width="60" height="24" viewBox="0 0 60 24"><path d="M0 12h50m-8-8l8 8-8 8" stroke="url(#arrow-grad2)" stroke-width="2" fill="none"/><defs><linearGradient id="arrow-grad2" x1="0" y1="0" x2="60" y2="0"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#34d399"/></linearGradient></defs></svg></div>
+        <div class="step-card" data-aos="zoom-in" data-delay="300">
+          <div class="step-number">03</div>
+          <div class="step-icon">✅</div>
+          <h3>Get Your Roadmap</h3>
+          <p>Receive an instant safety verification, a precise ATS score, keyword fixes, and an actionable career roadmap — all in one report.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIVERSITY / B2B -->
+  <section class="universities" id="universities">
+    <div class="container">
+      <div class="uni-content glass">
+        <div class="uni-text">
+          <div class="section-label">For Universities &amp; Placement Cells</div>
+          <h2>Protect Your <span class="gradient-text">Entire Campus.</span></h2>
+          <p>Fraudulent recruiters don't just target individuals — they infiltrate campus placement drives, bulk-email student databases, and post fake opportunities on college job boards.</p>
+          <p>CareerShield AI offers a dedicated <strong>University Dashboard</strong> that lets placement officers:</p>
+          <ul class="uni-list">
+            <li>Screen every recruiter and job posting before it reaches students</li>
+            <li>Auto-scan incoming placement emails for phishing &amp; fraud</li>
+            <li>Provide all students with free ATS resume optimization</li>
+            <li>Track placement readiness with AI-powered analytics</li>
+            <li>Integrate via API with existing campus portals</li>
+          </ul>
+          <a href="#cta" class="btn btn-primary">Partner With Us</a>
+        </div>
+        <div class="uni-visual">
+          <div class="uni-shield-graphic">
+            <div class="campus-ring ring-1"></div>
+            <div class="campus-ring ring-2"></div>
+            <div class="campus-ring ring-3"></div>
+            <div class="campus-center">🏛️</div>
+          </div>
+          <div class="uni-stat-badges">
+            <div class="uni-badge">50+ Universities</div>
+            <div class="uni-badge">200K+ Students Protected</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-label">Pricing</div>
+      <h2>Start Free. <span class="gradient-text">Scale When Ready.</span></h2>
+      <p class="section-sub">No credit card required. No hidden fees. Just career protection.</p>
+      <div class="pricing-grid">
+        <div class="price-card glass">
+          <div class="price-tier">Starter</div>
+          <div class="price-amount">₹0<span>/mo</span></div>
+          <ul class="price-features">
+            <li>5 Resume Scans / month</li>
+            <li>10 Job Link Scans / month</li>
+            <li>3 Email Scans / month</li>
+            <li>Basic Career Path Suggestions</li>
+          </ul>
+          <a href="#" class="btn btn-secondary">Get Started Free</a>
+        </div>
+        <div class="price-card glass featured">
+          <div class="price-badge">Most Popular</div>
+          <div class="price-tier">Pro Student</div>
+          <div class="price-amount">₹199<span>/mo</span></div>
+          <ul class="price-features">
+            <li>Unlimited Resume Scans</li>
+            <li>Unlimited Job &amp; Email Scans</li>
+            <li>AI Mock Interviews (10/mo)</li>
+            <li>ATS Keyword Optimization</li>
+            <li>Priority Support</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Go Pro</a>
+        </div>
+        <div class="price-card glass">
+          <div class="price-tier">Campus</div>
+          <div class="price-amount">Custom</div>
+          <ul class="price-features">
+            <li>Unlimited Everything</li>
+            <li>University Dashboard</li>
+            <li>Bulk Student Onboarding</li>
+            <li>API Integration</li>
+            <li>Dedicated Account Manager</li>
+          </ul>
+          <a href="#" class="btn btn-secondary">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="cta">
+    <div class="container">
+      <h2>Don't Let Scammers Derail Your Future.<br><span class="gradient-text">Step Into Your Career With Confidence.</span></h2>
+      <p class="section-sub">Join thousands of students who've already shielded their careers and landed real opportunities.</p>
+      <a href="#" class="btn btn-primary btn-large" id="final-cta-btn">Get Started for Free Today</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <svg class="logo-icon" viewBox="0 0 32 32" width="28" height="28"><path d="M16 2L4 8v8c0 7.18 5.12 13.9 12 15.4C22.88 29.9 28 23.18 28 16V8L16 2z" fill="url(#shield-grad-f)" opacity="0.9"/><path d="M14 17l-3-3 1.4-1.4L14 14.2l5.6-5.6L21 10l-7 7z" fill="#fff"/><defs><linearGradient id="shield-grad-f" x1="4" y1="2" x2="28" y2="32"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#34d399"/></linearGradient></defs></svg>
+          <span>CareerShield <span class="logo-ai">AI</span></span>
+        </a>
+        <p>Your AI-powered career companion. Protecting students from scams. Powering them toward success.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="resume-scanner.html">Resume Scanner</a>
+        <a href="#scam-detector">Scam Detector</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#universities">For Universities</a>
+      </div>
+      <div class="footer-links">
+        <h4>Legal &amp; Support</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#" class="report-scam-link">🚨 Report a Scam</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 CareerShield AI. All rights reserved. Built with 🛡️ for students everywhere.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
