@@ -42,15 +42,11 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-          {isHome && (
-            <>
-              <motion.li whileHover={{ y: -2 }}><a href="#features" className="hover:text-emerald-400 transition-colors">Features</a></motion.li>
-              <motion.li whileHover={{ y: -2 }}><a href="#scam-detector" className="hover:text-emerald-400 transition-colors">Scam Detector</a></motion.li>
-              <motion.li whileHover={{ y: -2 }}><a href="#universities" className="hover:text-emerald-400 transition-colors">For Universities</a></motion.li>
-              <motion.li whileHover={{ y: -2 }}><a href="#pricing" className="hover:text-emerald-400 transition-colors">Pricing</a></motion.li>
-            </>
-          )}
-          <motion.li whileHover={{ y: -2 }}><Link to="/resume-scanner" className="hover:text-emerald-400 transition-colors">Resume Scanner</Link></motion.li>
+          <motion.li whileHover={{ y: -2 }}><Link to="/resume-scanner" className="hover:text-emerald-400 transition-colors">Resume Analysis</Link></motion.li>
+          <motion.li whileHover={{ y: -2 }}><a href="#" className="hover:text-emerald-400 transition-colors">Career Roadmap</a></motion.li>
+          <motion.li whileHover={{ y: -2 }}><a href="#" className="hover:text-emerald-400 transition-colors">Resources</a></motion.li>
+          <motion.li whileHover={{ y: -2 }}><a href="#" className="hover:text-emerald-400 transition-colors">Placement Preparation</a></motion.li>
+          <motion.li whileHover={{ y: -2 }}><a href="#" className="hover:text-emerald-400 transition-colors">Project Recommendation</a></motion.li>
         </ul>
 
         <motion.a 
@@ -83,15 +79,11 @@ const Navbar = () => {
               className="fixed inset-0 bg-gray-900 z-40 flex flex-col justify-center items-center gap-6"
             >
               <ul className="flex flex-col items-center gap-6 text-xl font-medium text-gray-300">
-                {isHome && (
-                  <>
-                    <motion.li whileHover={{ scale: 1.1 }}><a href="#features" onClick={() => setMobileMenuOpen(false)}>Features</a></motion.li>
-                    <motion.li whileHover={{ scale: 1.1 }}><a href="#scam-detector" onClick={() => setMobileMenuOpen(false)}>Scam Detector</a></motion.li>
-                    <motion.li whileHover={{ scale: 1.1 }}><a href="#universities" onClick={() => setMobileMenuOpen(false)}>For Universities</a></motion.li>
-                    <motion.li whileHover={{ scale: 1.1 }}><a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</a></motion.li>
-                  </>
-                )}
-                <motion.li whileHover={{ scale: 1.1 }}><Link to="/resume-scanner" onClick={() => setMobileMenuOpen(false)}>Resume Scanner</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.1 }}><Link to="/resume-scanner" onClick={() => setMobileMenuOpen(false)}>Resume Analysis</Link></motion.li>
+                <motion.li whileHover={{ scale: 1.1 }}><a href="#" onClick={() => setMobileMenuOpen(false)}>Career Roadmap</a></motion.li>
+                <motion.li whileHover={{ scale: 1.1 }}><a href="#" onClick={() => setMobileMenuOpen(false)}>Resources</a></motion.li>
+                <motion.li whileHover={{ scale: 1.1 }}><a href="#" onClick={() => setMobileMenuOpen(false)}>Placement Preparation</a></motion.li>
+                <motion.li whileHover={{ scale: 1.1 }}><a href="#" onClick={() => setMobileMenuOpen(false)}>Project Recommendation</a></motion.li>
               </ul>
             </motion.div>
           )}

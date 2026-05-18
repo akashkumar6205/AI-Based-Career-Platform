@@ -72,7 +72,7 @@ const Universities = () => {
             </motion.p>
             
             <ul className="space-y-4 mb-10">
-              {['Screen every recruiter and job posting before it reaches students', 'Auto-scan incoming placement emails for phishing & fraud', 'Provide all students with free ATS resume optimization', 'Track placement readiness with AI-powered analytics', 'Integrate via API with existing campus portals'].map((item, i) => (
+              {['Screen every recruiter and job posting before it reaches students', 'Provide all students with free ATS resume optimization', 'Track placement readiness with AI-powered analytics', 'Integrate via API with existing campus portals'].map((item, i) => (
                 <motion.li 
                   custom={i}
                   variants={listVariants}
