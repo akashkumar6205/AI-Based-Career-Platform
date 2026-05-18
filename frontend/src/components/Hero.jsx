@@ -24,7 +24,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden" ref={containerRef}>
+    <section id="hero" className="relative min-h-[calc(100vh-160px)] flex items-center justify-center pb-12 overflow-hidden" ref={containerRef}>
       {/* Background Orbs */}
       <motion.div style={{ y }} className="absolute inset-0 pointer-events-none opacity-40 mix-blend-screen filter blur-[80px]">
         <div className="orb absolute top-[20%] left-[20%] w-72 h-72 bg-emerald-500 rounded-full transition-transform duration-700 ease-out"></div>
