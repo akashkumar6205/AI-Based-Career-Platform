@@ -31,61 +31,6 @@ const Features = () => {
     <section id="features" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6">
         
-        {/* Pillar 1 */}
-        <div id="scam-detector" className="mb-32">
-          <motion.div 
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={pillarVariants}
-            className="flex items-center gap-6 mb-12"
-          >
-            <motion.div 
-              whileHover={{ rotate: 15, scale: 1.1 }}
-              className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-3xl shadow-[0_0_30px_rgba(16,185,129,0.2)]"
-            >
-              🛡️
-            </motion.div>
-            <div>
-              <div className="text-emerald-500 font-semibold uppercase tracking-wider mb-1 text-sm">Pillar 1</div>
-              <h2 className="text-3xl md:text-4xl font-bold">The Shield — <span className="gradient-text">Security</span></h2>
-              <p className="text-gray-400 mt-2">Defend yourself against the scams, fakes, and frauds lurking in every inbox and job board.</p>
-            </div>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div 
-              initial="hidden" whileInView="visible" whileHover="hover" viewport={{ once: true, margin: "-50px" }} variants={cardVariants}
-              className="glass p-8 transition-colors duration-300"
-            >
-              <div className="text-4xl mb-6">🔍</div>
-              <h3 className="text-2xl font-bold mb-4 text-white">Fake Job &amp; Internship Detector</h3>
-              <p className="text-gray-400 mb-6 leading-relaxed">Paste any job link or description and our AI instantly cross-references company registration databases, URL history, domain age, and linguistic red-flag patterns. We'll tell you if that "dream internship" is actually a data-harvesting scam — before you hand over your PAN card.</p>
-              <ul className="space-y-3">
-                {['Company registration verification', 'URL & domain reputation analysis', 'Language pattern red-flag scoring', 'Ghost job probability rating'].map((item, i) => (
-                  <motion.li key={i} whileHover={{ x: 5 }} className="flex items-center gap-3 text-gray-300 transition-transform">
-                    <svg className="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
-            <motion.div 
-              initial="hidden" whileInView="visible" whileHover="hover" viewport={{ once: true, margin: "-50px" }} variants={cardVariants} transition={{ delay: 0.2 }}
-              className="glass p-8 transition-colors duration-300"
-            >
-              <div className="text-4xl mb-6">📩</div>
-              <h3 className="text-2xl font-bold mb-4 text-white">Spam &amp; Fake Email Scanner</h3>
-              <p className="text-gray-400 mb-6 leading-relaxed">Got a suspicious "You're hired!" email from a recruiter you've never heard of? Paste or forward it to CareerShield AI. We'll dissect the headers, scan for malicious links, verify sender domains, and expose phishing attempts — so you never click on a trap again.</p>
-              <ul className="space-y-3">
-                {['Email header & sender verification', 'Malicious link detection', 'Fake offer letter identification', 'Phishing risk score'].map((item, i) => (
-                  <motion.li key={i} whileHover={{ x: 5 }} className="flex items-center gap-3 text-gray-300 transition-transform">
-                    <svg className="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-        </div>
 
         {/* Pillar 2 */}
         <div id="resume-scanner">

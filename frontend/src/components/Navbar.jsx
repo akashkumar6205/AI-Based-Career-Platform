@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ onOpenChat }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === '/';
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-gray-900/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'}`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2 group">
+        <a href="/" className="flex items-center gap-2 group">
           <motion.svg 
             whileHover={{ rotate: 180 }}
             transition={{ duration: 0.5 }}
@@ -38,25 +39,26 @@ const Navbar = () => {
             </defs>
           </motion.svg>
           <span className="text-xl font-bold tracking-tight text-white">CareerShield <span className="text-emerald-400">AI</span></span>
-        </Link>
+        </a>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-          <motion.li whileHover={{ y: -2 }}><Link to="/resume-scanner" className="hover:text-emerald-400 transition-colors">Resume Analysis</Link></motion.li>
-          <motion.li whileHover={{ y: -2 }}><a href="#" className="hover:text-emerald-400 transition-colors">Career Roadmap</a></motion.li>
-          <motion.li whileHover={{ y: -2 }}><a href="#" className="hover:text-emerald-400 transition-colors">Resources</a></motion.li>
-          <motion.li whileHover={{ y: -2 }}><a href="#" className="hover:text-emerald-400 transition-colors">Placement Preparation</a></motion.li>
-          <motion.li whileHover={{ y: -2 }}><a href="#" className="hover:text-emerald-400 transition-colors">Project Recommendation</a></motion.li>
+        <ul className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-300">
+          <motion.li whileHover={{ scale: 1.05 }}><Link to="/" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">Home</Link></motion.li>
+          <motion.li whileHover={{ scale: 1.05 }}><Link to="/resume-scanner" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">Resume Analysis</Link></motion.li>
+          <motion.li whileHover={{ scale: 1.05 }}><Link to="/career-roadmap" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">Career Roadmap</Link></motion.li>
+          <motion.li whileHover={{ scale: 1.05 }}><Link to="/placement-preparation" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">Placement Preparation</Link></motion.li>
+          <motion.li whileHover={{ scale: 1.05 }}><Link to="/project-recommendation" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">Project Recommendation</Link></motion.li>
+          <motion.li whileHover={{ scale: 1.05 }}><Link to="/about" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">About</Link></motion.li>
         </ul>
 
-        <motion.a 
+        <motion.button 
           whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(16, 185, 129, 0.5)" }}
           whileTap={{ scale: 0.95 }}
-          href={isHome ? "#cta" : "/"} 
+          onClick={onOpenChat} 
           className="hidden md:inline-flex bg-emerald-500 text-white px-6 py-2 rounded-full font-medium shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-colors"
         >
-          Protect My Career (Free)
-        </motion.a>
+          Contact Us
+        </motion.button>
 
         {/* Mobile Toggle */}
         <button 
@@ -78,12 +80,13 @@ const Navbar = () => {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed inset-0 bg-gray-900 z-40 flex flex-col justify-center items-center gap-6"
             >
-              <ul className="flex flex-col items-center gap-6 text-xl font-medium text-gray-300">
-                <motion.li whileHover={{ scale: 1.1 }}><Link to="/resume-scanner" onClick={() => setMobileMenuOpen(false)}>Resume Analysis</Link></motion.li>
-                <motion.li whileHover={{ scale: 1.1 }}><a href="#" onClick={() => setMobileMenuOpen(false)}>Career Roadmap</a></motion.li>
-                <motion.li whileHover={{ scale: 1.1 }}><a href="#" onClick={() => setMobileMenuOpen(false)}>Resources</a></motion.li>
-                <motion.li whileHover={{ scale: 1.1 }}><a href="#" onClick={() => setMobileMenuOpen(false)}>Placement Preparation</a></motion.li>
-                <motion.li whileHover={{ scale: 1.1 }}><a href="#" onClick={() => setMobileMenuOpen(false)}>Project Recommendation</a></motion.li>
+              <ul className="flex flex-col items-center gap-2 text-xl font-medium text-gray-300 w-full px-6">
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">Home</Link></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/resume-scanner" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">Resume Analysis</Link></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/career-roadmap" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">Career Roadmap</Link></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/placement-preparation" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">Placement Preparation</Link></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/project-recommendation" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">Project Recommendation</Link></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">About</Link></motion.li>
               </ul>
             </motion.div>
           )}
