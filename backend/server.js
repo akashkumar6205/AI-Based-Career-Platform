@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const multer = require('multer');
 const cors = require('cors');
+const fs = require('fs');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,6 +12,98 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
+
+const USERS_FILE = path.join(__dirname, 'users.json');
+const JWT_SECRET = 'careershield_ai_super_secret_key_12345';
+
+// Helper to read users
+function readUsers() {
+  if (!fs.existsSync(USERS_FILE)) {
+    fs.writeFileSync(USERS_FILE, JSON.stringify([]));
+  }
+  try {
+    const data = fs.readFileSync(USERS_FILE, 'utf8');
+    return JSON.parse(data || '[]');
+  } catch (error) {
+    return [];
+  }
+}
+
+// Helper to write users
+function writeUsers(users) {
+  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
+}
+
+// Auth Middleware
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  
+  if (!token) return res.status(401).json({ error: 'Access token required' });
+  
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ error: 'Invalid or expired token' });
+    req.user = user;
+    next();
+  });
+}
+
+// Auth Endpoints
+app.post('/api/auth/signup', (req, res) => {
+  const { email, password } = req.body;
+  
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email and password are required' });
+  }
+  
+  const users = readUsers();
+  const existingUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+  if (existingUser) {
+    return res.status(400).json({ error: 'Email already registered' });
+  }
+  
+  const hashedPassword = bcrypt.hashSync(password, 10);
+  const newUser = {
+    id: Date.now().toString(),
+    email: email.toLowerCase(),
+    password: hashedPassword,
+    createdAt: new Date().toISOString()
+  };
+  
+  users.push(newUser);
+  writeUsers(users);
+  
+  const token = jwt.sign({ id: newUser.id, email: newUser.email }, JWT_SECRET, { expiresIn: '7d' });
+  res.status(201).json({
+    token,
+    user: { id: newUser.id, email: newUser.email }
+  });
+});
+
+app.post('/api/auth/login', (req, res) => {
+  const { email, password } = req.body;
+  
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email and password are required' });
+  }
+  
+  const users = readUsers();
+  const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+  
+  if (!user || !bcrypt.compareSync(password, user.password)) {
+    return res.status(401).json({ error: 'Invalid email or password' });
+  }
+  
+  const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '7d' });
+  res.json({
+    token,
+    user: { id: user.id, email: user.email }
+  });
+});
+
+app.get('/api/auth/me', authenticateToken, (req, res) => {
+  res.json({ user: req.user });
+});
 
 // File upload config
 const storage = multer.diskStorage({
