@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = ({ onOpenChat, onOpenAuth }) => {
@@ -11,6 +11,20 @@ const Navbar = ({ onOpenChat, onOpenAuth }) => {
   
   const { user, logout } = useAuth();
   const dropdownRef = useRef(null);
+  
+  const handleLogoOrHomeClick = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const getLinkClass = ({ isActive }) => 
+    `px-3 py-2 rounded-lg transition-all block font-medium border ${
+      isActive 
+        ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]' 
+        : 'text-gray-300 hover:bg-emerald-500/10 hover:text-emerald-400 border-transparent'
+    }`;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -36,7 +50,7 @@ const Navbar = ({ onOpenChat, onOpenAuth }) => {
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-gray-900/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'}`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2 group">
+        <div className="flex items-center gap-2 group">
           <motion.svg 
             whileHover={{ rotate: 180 }}
             transition={{ duration: 0.5 }}
@@ -52,16 +66,16 @@ const Navbar = ({ onOpenChat, onOpenAuth }) => {
             </defs>
           </motion.svg>
           <span className="text-xl font-bold tracking-tight text-white">CareerShield <span className="text-emerald-400">AI</span></span>
-        </Link>
+        </div>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-300">
-          <motion.li whileHover={{ scale: 1.05 }}><Link to="/" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">Home</Link></motion.li>
-          <motion.li whileHover={{ scale: 1.05 }}><Link to="/resume-scanner" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">Resume Analysis</Link></motion.li>
-          <motion.li whileHover={{ scale: 1.05 }}><Link to="/career-roadmap" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">Career Roadmap</Link></motion.li>
-          <motion.li whileHover={{ scale: 1.05 }}><Link to="/placement-preparation" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">Placement Preparation</Link></motion.li>
-          <motion.li whileHover={{ scale: 1.05 }}><Link to="/project-recommendation" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">Project Recommendation</Link></motion.li>
-          <motion.li whileHover={{ scale: 1.05 }}><Link to="/about" className="px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:text-emerald-400 transition-all block">About</Link></motion.li>
+        <ul className="hidden md:flex items-center gap-2 text-sm font-medium">
+          <motion.li whileHover={{ scale: 1.05 }}><NavLink to="/" onClick={handleLogoOrHomeClick} className={getLinkClass}>Home</NavLink></motion.li>
+          <motion.li whileHover={{ scale: 1.05 }}><NavLink to="/resume-scanner" className={getLinkClass}>Resume Analysis</NavLink></motion.li>
+          <motion.li whileHover={{ scale: 1.05 }}><NavLink to="/career-roadmap" className={getLinkClass}>Career Roadmap</NavLink></motion.li>
+          <motion.li whileHover={{ scale: 1.05 }}><NavLink to="/placement-preparation" className={getLinkClass}>Placement Preparation</NavLink></motion.li>
+          <motion.li whileHover={{ scale: 1.05 }}><NavLink to="/project-recommendation" className={getLinkClass}>Project Recommendation</NavLink></motion.li>
+          <motion.li whileHover={{ scale: 1.05 }}><NavLink to="/about" className={getLinkClass}>About</NavLink></motion.li>
         </ul>
 
         <div className="hidden md:flex items-center gap-4">
@@ -145,12 +159,12 @@ const Navbar = ({ onOpenChat, onOpenAuth }) => {
               className="fixed inset-0 bg-gray-900 z-40 flex flex-col justify-center items-center gap-6"
             >
               <ul className="flex flex-col items-center gap-2 text-xl font-medium text-gray-300 w-full px-6">
-                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">Home</Link></motion.li>
-                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/resume-scanner" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">Resume Analysis</Link></motion.li>
-                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/career-roadmap" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">Career Roadmap</Link></motion.li>
-                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/placement-preparation" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">Placement Preparation</Link></motion.li>
-                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/project-recommendation" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">Project Recommendation</Link></motion.li>
-                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">About</Link></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><NavLink to="/" onClick={(e) => { setMobileMenuOpen(false); handleLogoOrHomeClick(e); }} className={getLinkClass}>Home</NavLink></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><NavLink to="/resume-scanner" onClick={() => setMobileMenuOpen(false)} className={getLinkClass}>Resume Analysis</NavLink></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><NavLink to="/career-roadmap" onClick={() => setMobileMenuOpen(false)} className={getLinkClass}>Career Roadmap</NavLink></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><NavLink to="/placement-preparation" onClick={() => setMobileMenuOpen(false)} className={getLinkClass}>Placement Preparation</NavLink></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><NavLink to="/project-recommendation" onClick={() => setMobileMenuOpen(false)} className={getLinkClass}>Project Recommendation</NavLink></motion.li>
+                <motion.li className="w-full text-center" whileHover={{ scale: 1.05 }}><NavLink to="/about" onClick={() => setMobileMenuOpen(false)} className={getLinkClass}>About</NavLink></motion.li>
               </ul>
               {user ? (
                 <div className="mt-6 w-4/5 flex flex-col items-center gap-4">

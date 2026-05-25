@@ -23,6 +23,7 @@ import SignupPage from './pages/SignupPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { AnimatePresence } from 'framer-motion';
 import NotFound from './components/NotFound';
+import ScrollToTop from './components/ScrollToTop';
 
 const Home = () => (
   <>
@@ -45,6 +46,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 overflow-x-hidden font-sans">
+      <ScrollToTop />
       <Navbar 
         onOpenChat={() => setIsChatOpen(true)} 
         onOpenAuth={() => setIsAuthOpen(true)} 
