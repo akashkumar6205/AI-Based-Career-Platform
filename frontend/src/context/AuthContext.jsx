@@ -7,10 +7,11 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [loading, setLoading] = useState(true);
 
-  // Verify token on mount or when token changes
+  // Verify token on mount
   useEffect(() => {
     const verifyToken = async () => {
-      if (!token) {
+      const storedToken = localStorage.getItem('token');
+      if (!storedToken) {
         setUser(null);
         setLoading(false);
         return;
@@ -19,7 +20,7 @@ export const AuthProvider = ({ children }) => {
       try {
         const response = await fetch('/api/auth/me', {
           headers: {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${storedToken}`
           }
         });
 
@@ -40,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     verifyToken();
-  }, [token]);
+  }, []);
 
   // Login handler
   const login = async (email, password) => {

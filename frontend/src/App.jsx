@@ -22,6 +22,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { AnimatePresence } from 'framer-motion';
+import NotFound from './components/NotFound';
 
 const Home = () => (
   <>
@@ -90,6 +91,7 @@ function App() {
               </ProtectedRoute>
             } 
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

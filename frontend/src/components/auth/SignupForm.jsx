@@ -16,6 +16,10 @@ const SignupForm = ({ onSwitchToLogin, onClose, isModal = false }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!agreed) return;
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return;
+    }
     setError(null);
     setIsSubmitting(true);
 
@@ -71,6 +75,7 @@ const SignupForm = ({ onSwitchToLogin, onClose, isModal = false }) => {
         <form onSubmit={handleSubmit} className="space-y-5">
           {error && (
             <motion.div
+              key={error}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="bg-red-500/10 border border-red-500/20 text-red-400 p-3 rounded-lg text-sm text-center"

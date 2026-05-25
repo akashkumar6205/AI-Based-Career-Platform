@@ -6,7 +6,6 @@ import { useAuth } from '../../context/AuthContext';
 const LoginForm = ({ onSwitchToSignup, onClose, isModal = false }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [focusedField, setFocusedField] = useState(null);
   const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
@@ -70,6 +69,7 @@ const LoginForm = ({ onSwitchToSignup, onClose, isModal = false }) => {
         <form onSubmit={handleSubmit} className="space-y-5">
           {error && (
             <motion.div
+              key={error}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="bg-red-500/10 border border-red-500/20 text-red-400 p-3 rounded-lg text-sm text-center"
@@ -85,8 +85,6 @@ const LoginForm = ({ onSwitchToSignup, onClose, isModal = false }) => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              onFocus={() => setFocusedField('email')}
-              onBlur={() => setFocusedField(null)}
               required
               className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 pt-5 pb-2 text-white text-sm outline-none transition-all duration-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/50 peer"
               placeholder=" "
@@ -106,8 +104,6 @@ const LoginForm = ({ onSwitchToSignup, onClose, isModal = false }) => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              onFocus={() => setFocusedField('password')}
-              onBlur={() => setFocusedField(null)}
               required
               className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 pt-5 pb-2 text-white text-sm outline-none transition-all duration-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/50 peer"
               placeholder=" "
