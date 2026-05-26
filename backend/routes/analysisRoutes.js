@@ -5,13 +5,26 @@ const path = require('path');
 const analysisController = require('../controllers/analysisController');
 const authenticateToken = require('../middleware/auth');
 
+const fs = require('fs');
+
 // Multer upload configurations
 const uploadsDir = path.join(__dirname, '../uploads');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadsDir),
-  filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname)
-});
+// Smart Multer storage engine selection (diskStorage with memoryStorage fallback)
+let storage;
+try {
+  if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+  }
+  fs.accessSync(uploadsDir, fs.constants.W_OK);
+  storage = multer.diskStorage({
+    destination: (req, file, cb) => cb(null, uploadsDir),
+    filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname)
+  });
+} catch (err) {
+  console.log('Upload directory not writable. Falling back to Memory Storage (Serverless friendly).');
+  storage = multer.memoryStorage();
+}
 
 const upload = multer({ 
   storage, 

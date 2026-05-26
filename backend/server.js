@@ -19,7 +19,23 @@ if (!fs.existsSync(uploadsDir)) {
 }
 
 // Global Middlewares
-app.use(cors());
+// Global Middlewares & CORS Protection
+const allowedOrigins = [
+  process.env.FRONTEND_URL || 'http://localhost:5173',
+  'http://localhost:3000'
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Blocked by CORS policy: Origin not allowed'));
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
