@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const fs = require('fs');
+const mongoose = require('mongoose');
 const connectDB = require('./config/db');
 
 const app = express();
@@ -37,7 +38,11 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+// Serve frontend static assets if they exist (for unified local deployments)
+const distPath = path.join(__dirname, '../frontend/dist');
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath));
+}
 
 // API Routes
 const authRoutes = require('./routes/authRoutes');
@@ -46,9 +51,20 @@ const analysisRoutes = require('./routes/analysisRoutes');
 app.use('/api/auth', authRoutes);
 app.use('/api', analysisRoutes);
 
-// Fallback SPA routing for client routing integration
+// Root Health Route & SPA Fallback Handler
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+  const indexHtmlPath = path.join(__dirname, '../frontend/dist/index.html');
+  if (fs.existsSync(indexHtmlPath)) {
+    res.sendFile(indexHtmlPath);
+  } else {
+    // Return a clean API Health Status JSON response for backend-only deployments (like Render)
+    res.json({
+      status: 'active',
+      api: 'CareerShield AI Express Backend API',
+      database: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected',
+      environment: process.env.NODE_ENV || 'production'
+    });
+  }
 });
 
 // Listen
