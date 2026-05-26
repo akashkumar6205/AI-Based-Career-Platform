@@ -11,7 +11,6 @@ import PlacementPreparation from './components/PlacementPreparation';
 import ProjectRecommendation from './components/ProjectRecommendation';
 import CareerRoadmap from './components/CareerRoadmap';
 import ContactUs from './components/ContactUs';
-import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 import CTA from './components/CTA';
 import ResumeScanner from './components/ResumeScanner';
@@ -35,7 +34,6 @@ const Home = () => (
     <Features />
     <HowItWorks />
     <Universities />
-    <Pricing />
     <CTA />
   </>
 );
