@@ -5,25 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 const ONBOARDING_STEPS = {
   GREETING: 'greeting',
   ASK_NAME: 'ask_name',
-  ASK_STREAM: 'ask_stream',
   ASK_YEAR: 'ask_year',
   ASK_GOAL: 'ask_goal',
   CAREER_QUESTIONS: 'career_questions',
   FREE_CHAT: 'free_chat',
 };
 
-const STREAM_OPTIONS = [
-  'Computer Science (CS/IT)',
-  'Electronics & Communication (ECE)',
-  'Mechanical Engineering',
-  'Civil Engineering',
-  'Electrical Engineering',
-  'BBA / MBA',
-  'BCA / MCA',
-  'B.Sc / M.Sc',
-  'Commerce / CA',
-  'Other',
-];
 
 const YEAR_OPTIONS = ['1st Year', '2nd Year', '3rd Year', '4th Year', 'Graduated'];
 
@@ -126,7 +113,7 @@ const ChatModal = ({ onClose }) => {
   const saveProfile = (profile) => {
     try {
       localStorage.setItem('careershield_chat_profile', JSON.stringify(profile));
-    } catch {}
+    } catch { }
   };
 
   // Handle onboarding input
@@ -308,7 +295,7 @@ const ChatModal = ({ onClose }) => {
   return (
     <>
       {/* Backdrop for mobile */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -317,7 +304,7 @@ const ChatModal = ({ onClose }) => {
       />
 
       {/* Chatbot Modal Container */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: '100%', scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: '100%', scale: 0.95 }}
@@ -330,7 +317,7 @@ const ChatModal = ({ onClose }) => {
         {/* Header */}
         <div className="flex items-center justify-between p-4 bg-gray-900/50 border-b border-gray-700/50 backdrop-blur-md relative overflow-hidden flex-shrink-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 pointer-events-none" />
-          
+
           <div className="flex items-center gap-3 relative z-10">
             <div className="relative">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.5)]">
@@ -343,7 +330,7 @@ const ChatModal = ({ onClose }) => {
               <p className="text-xs text-emerald-400 font-medium">Online • Replies instantly</p>
             </div>
           </div>
-          <button 
+          <button
             onClick={onClose}
             className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-gray-300 relative z-10"
           >
@@ -355,7 +342,7 @@ const ChatModal = ({ onClose }) => {
         <div className="flex-grow p-4 overflow-y-auto flex flex-col gap-4 relative custom-chat-scrollbar">
           <AnimatePresence initial={false}>
             {messages.map((msg, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 10, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -366,19 +353,18 @@ const ChatModal = ({ onClose }) => {
                     <span className="text-xs">🤖</span>
                   </div>
                 )}
-                <div className={`max-w-[75%] p-3.5 text-[14px] leading-relaxed shadow-md whitespace-pre-line ${
-                  msg.sender === 'user' 
-                    ? 'bg-gradient-to-br from-blue-600 to-blue-500 text-white rounded-2xl rounded-tr-sm' 
+                <div className={`max-w-[75%] p-3.5 text-[14px] leading-relaxed shadow-md whitespace-pre-line ${msg.sender === 'user'
+                    ? 'bg-gradient-to-br from-blue-600 to-blue-500 text-white rounded-2xl rounded-tr-sm'
                     : 'bg-gray-800/80 backdrop-blur-sm text-gray-100 border border-gray-700/50 rounded-2xl rounded-tl-sm'
-                }`}>
+                  }`}>
                   {msg.text}
                 </div>
               </motion.div>
             ))}
-            
+
             {/* Typing Indicator */}
             {isTyping && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
@@ -404,24 +390,24 @@ const ChatModal = ({ onClose }) => {
 
         {/* Input Area */}
         <div className="p-3 bg-gray-900/80 backdrop-blur-md border-t border-gray-700/50 flex-shrink-0">
-          <form 
-            onSubmit={(e) => { e.preventDefault(); handleSend(input); }} 
+          <form
+            onSubmit={(e) => { e.preventDefault(); handleSend(input); }}
             className="flex items-center gap-2 relative bg-gray-800/80 border border-gray-700 rounded-full pl-4 pr-1.5 py-1.5 focus-within:border-blue-500/50 focus-within:bg-gray-800 transition-colors shadow-inner"
           >
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={
                 onboardingStep === ONBOARDING_STEPS.ASK_NAME ? "Type your name..." :
-                onboardingStep === ONBOARDING_STEPS.ASK_STREAM ? "Type your stream..." :
-                onboardingStep === ONBOARDING_STEPS.ASK_YEAR ? "Type your year..." :
-                onboardingStep === ONBOARDING_STEPS.ASK_GOAL ? "Describe what you need..." :
-                "Ask me anything..."
+                  onboardingStep === ONBOARDING_STEPS.ASK_STREAM ? "Type your stream..." :
+                    onboardingStep === ONBOARDING_STEPS.ASK_YEAR ? "Type your year..." :
+                      onboardingStep === ONBOARDING_STEPS.ASK_GOAL ? "Describe what you need..." :
+                        "Ask me anything..."
               }
               className="flex-grow bg-transparent text-white text-[14px] focus:outline-none w-full"
             />
-            <button 
+            <button
               type="submit"
               disabled={!input.trim() || isTyping}
               className="w-9 h-9 flex-shrink-0 flex items-center justify-center bg-blue-500 hover:bg-blue-400 disabled:bg-gray-600 disabled:text-gray-400 text-white rounded-full transition-colors shadow-[0_0_10px_rgba(59,130,246,0.3)] disabled:shadow-none"
