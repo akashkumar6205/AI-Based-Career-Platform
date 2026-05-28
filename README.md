@@ -2,7 +2,7 @@
 
 **A Smarter, Safer Career Guardian for Students**
 
-CareerShield AI is an all-in-one career companion designed to protect students and recent graduates from the hidden dangers of the modern job market. It detects fake job postings, flags phishing emails, optimizes resumes for ATS (Applicant Tracking System) bots, and coaches users through mock interviews—all powered by AI.
+CareerShield AI is an all-in-one career companion designed to protect students and recent graduates from the hidden dangers of the modern job market. optimizes resumes for ATS (Applicant Tracking System) bots, and coaches users through mock interviews—all powered by AI.
 
 ## ✨ Features
 

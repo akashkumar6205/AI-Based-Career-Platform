@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Features = () => {
   const pillarVariants = {
@@ -27,10 +28,11 @@ const Features = () => {
     transition: { type: "spring", stiffness: 400, damping: 25 }
   };
 
+  const MotionLink = motion(Link);
+
   return (
     <section id="features" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6">
-
 
         {/* Pillar 2 */}
         <div id="resume-scanner">
@@ -52,8 +54,9 @@ const Features = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <motion.a
-              href="/resume-scanner.html"
+            {/* Card 1: AI Resume & ATS Optimizer */}
+            <MotionLink
+              to="/resume-scanner"
               initial="hidden" whileInView="visible" whileHover={swordCardHover} whileTap={{ scale: 0.98 }} viewport={{ once: true, margin: "-50px" }} variants={cardVariants}
               className="block glass p-8 transition-colors duration-300 group"
             >
@@ -71,16 +74,18 @@ const Features = () => {
               <span className="inline-flex items-center gap-2 text-blue-400 font-medium group-hover:text-blue-300 transition-colors">
                 Try It Now <motion.svg className="w-4 h-4" initial={{ x: 0 }} whileHover={{ x: 5 }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></motion.svg>
               </span>
-            </motion.a>
+            </MotionLink>
 
-            <motion.div
-              initial="hidden" whileInView="visible" whileHover={swordCardHover} viewport={{ once: true, margin: "-50px" }} variants={cardVariants} transition={{ delay: 0.2 }}
-              className="glass p-8 transition-colors duration-300"
+            {/* Card 2: Placement Preparation */}
+            <MotionLink
+              to="/placement-preparation"
+              initial="hidden" whileInView="visible" whileHover={swordCardHover} whileTap={{ scale: 0.98 }} viewport={{ once: true, margin: "-50px" }} variants={cardVariants} transition={{ delay: 0.1 }}
+              className="block glass p-8 transition-colors duration-300 group"
             >
-              <div className="text-4xl mb-6">🎙️</div>
-              <h3 className="text-2xl font-bold mb-4 text-white">AI Career Coach &amp; Mock Interviews</h3>
-              <p className="text-gray-400 mb-6 leading-relaxed">Our interactive AI coach maps your ideal career path based on your skills, interests, and market demand. Then it drops you into realistic mock interviews — audio or text — with real-time feedback on your answers, body language cues, and confidence level. Walk into every interview battle-tested.</p>
-              <ul className="space-y-3">
+              <div className="text-4xl mb-6">💼</div>
+              <h3 className="text-2xl font-bold mb-4 text-white">Placement Preparation</h3>
+              <p className="text-gray-400 mb-6 leading-relaxed">Ace your upcoming interviews with AI-powered mock interviews and tailor-made prep materials. Practice real-time responses and get instant, actionable feedback to sharpen your skills. Walk into every interview battle-tested.</p>
+              <ul className="space-y-3 mb-8">
                 {['Personalized career path mapping', 'Audio & text mock interviews', 'Real-time answer feedback', 'Confidence & clarity scoring'].map((item, i) => (
                   <motion.li key={i} whileHover={{ x: 5 }} className="flex items-center gap-3 text-gray-300 transition-transform">
                     <svg className="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
@@ -88,7 +93,54 @@ const Features = () => {
                   </motion.li>
                 ))}
               </ul>
-            </motion.div>
+              <span className="inline-flex items-center gap-2 text-blue-400 font-medium group-hover:text-blue-300 transition-colors">
+                Try It Now <motion.svg className="w-4 h-4" initial={{ x: 0 }} whileHover={{ x: 5 }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></motion.svg>
+              </span>
+            </MotionLink>
+
+            {/* Card 3: Career Roadmap */}
+            <MotionLink
+              to="/career-roadmap"
+              initial="hidden" whileInView="visible" whileHover={swordCardHover} whileTap={{ scale: 0.98 }} viewport={{ once: true, margin: "-50px" }} variants={cardVariants} transition={{ delay: 0.2 }}
+              className="block glass p-8 transition-colors duration-300 group"
+            >
+              <div className="text-4xl mb-6">🗺️</div>
+              <h3 className="text-2xl font-bold mb-4 text-white">Career Roadmap</h3>
+              <p className="text-gray-400 mb-6 leading-relaxed">Visualize and plan your career trajectory with step-by-step guidance. Get a personalized roadmap tailored to your dream job, highlighting key skills, certifications, and milestones you need to achieve.</p>
+              <ul className="space-y-3 mb-8">
+                {['Personalized step-by-step career path', 'Skill gap analysis & recommendations', 'Milestone tracking & goal setting', 'Industry trends & insights'].map((item, i) => (
+                  <motion.li key={i} whileHover={{ x: 5 }} className="flex items-center gap-3 text-gray-300 transition-transform">
+                    <svg className="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                    {item}
+                  </motion.li>
+                ))}
+              </ul>
+              <span className="inline-flex items-center gap-2 text-blue-400 font-medium group-hover:text-blue-300 transition-colors">
+                Try It Now <motion.svg className="w-4 h-4" initial={{ x: 0 }} whileHover={{ x: 5 }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></motion.svg>
+              </span>
+            </MotionLink>
+
+            {/* Card 4: Project Recommendation */}
+            <MotionLink
+              to="/project-recommendation"
+              initial="hidden" whileInView="visible" whileHover={swordCardHover} whileTap={{ scale: 0.98 }} viewport={{ once: true, margin: "-50px" }} variants={cardVariants} transition={{ delay: 0.3 }}
+              className="block glass p-8 transition-colors duration-300 group"
+            >
+              <div className="text-4xl mb-6">💻</div>
+              <h3 className="text-2xl font-bold mb-4 text-white">Project Recommendation</h3>
+              <p className="text-gray-400 mb-6 leading-relaxed">Get personalized coding and technical project recommendations designed to boost your portfolio. Stand out to recruiters with projects that align with your career goals and bridge key skill gaps.</p>
+              <ul className="space-y-3 mb-8">
+                {['Custom project ideas tailored for you', 'Technology stack recommendations', 'Step-by-step development guidelines', 'Portfolio-building best practices'].map((item, i) => (
+                  <motion.li key={i} whileHover={{ x: 5 }} className="flex items-center gap-3 text-gray-300 transition-transform">
+                    <svg className="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                    {item}
+                  </motion.li>
+                ))}
+              </ul>
+              <span className="inline-flex items-center gap-2 text-blue-400 font-medium group-hover:text-blue-300 transition-colors">
+                Try It Now <motion.svg className="w-4 h-4" initial={{ x: 0 }} whileHover={{ x: 5 }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></motion.svg>
+              </span>
+            </MotionLink>
           </div>
         </div>
 
