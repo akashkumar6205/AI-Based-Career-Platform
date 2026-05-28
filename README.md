@@ -8,12 +8,9 @@ CareerShield AI is an all-in-one career companion designed to protect students a
 
 ## 🌟 Key Features
 
-### 🛡️ Pillar 1: The Shield (Security)
+### 🛡️ Pillars: The Shield 
 - **Fake Job & Internship Detector**: Analyzes company metadata, website registration databases, URL history, and linguistic patterns to expose data-harvesting scams and malicious listings.
-- **Spam & Fake Email Scanner**: Scans email headers, checks domain authentication (SPF/DKIM/DMARC), and dissects links to protect against credential phishing.
-- **University Dashboard**: Dedicated dashboard empowering university placement cells and placement officers to screen recruiters, run batch scans on placement emails, and audit student preparation levels.
 
-### ⚔️ Pillar 2: The Sword (Career Growth)
 - **AI Resume & ATS Optimizer**: 
   - Allows uploading resumes (`.pdf`, `.docx`, `.doc`, `.txt`) up to 5MB.
   - Scores resumes across five domains: **Technical Skills**, **Soft Skills**, **Industry Keywords**, **Action Verbs**, and **Experience Match**.

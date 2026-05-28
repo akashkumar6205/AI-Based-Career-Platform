@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className="bg-gray-950 pt-20 pb-10 border-t border-gray-800">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-6 group">
@@ -39,7 +39,6 @@ const Footer = () => {
               <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">About Us</a></li>
               <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">Blog</a></li>
               <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">Careers</a></li>
-              <li><a href="#universities" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">For Universities</a></li>
             </ul>
           </div>
           

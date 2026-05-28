@@ -10,7 +10,7 @@ const CareerRoadmap = () => {
         <div className="absolute bottom-[10%] right-[10%] w-[30%] h-[30%] rounded-full bg-emerald-500/5 blur-[100px]"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ const CareerRoadmap = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="max-w-xl mx-auto glass p-10 text-center border-emerald-500/20 shadow-[0_0_40px_rgba(16,185,129,0.05)]"
+          className="max-w-xl mx-auto glass p-6 md:p-10 text-center border-emerald-500/20 shadow-[0_0_40px_rgba(16,185,129,0.05)]"
         >
           <div className="text-5xl mb-6">🗺️</div>
           <h3 className="text-2xl font-bold text-white mb-3">Coming Soon</h3>

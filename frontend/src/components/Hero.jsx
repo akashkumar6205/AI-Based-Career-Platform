@@ -39,14 +39,14 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="inline-block bg-gray-800/50 backdrop-blur-md border border-gray-700 rounded-full px-4 py-1.5 text-sm font-medium text-emerald-400 mb-8"
         >
-
+          Step Into Your Career With Confidence.
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight"
+          className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight"
         >
           A Smarter, Safer<br />
           <span className="gradient-text">Career Guardian<br />for Students</span>

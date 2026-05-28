@@ -102,7 +102,7 @@ const SignupForm = ({ onSwitchToLogin, onClose, isModal = false }) => {
       </div>
 
       {/* Form Content */}
-      <div className="flex-1 bg-gray-800/80 backdrop-blur-xl p-8 md:p-10 flex flex-col justify-center">
+      <div className="flex-1 bg-gray-800/80 backdrop-blur-xl p-6 md:p-10 flex flex-col justify-center">
         <h2 className="text-2xl font-bold text-white text-center mb-8">SIGN UP</h2>
         
         <form onSubmit={handleSubmit} className="space-y-5">

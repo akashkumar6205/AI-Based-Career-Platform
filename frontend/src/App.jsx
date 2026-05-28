@@ -5,14 +5,14 @@ import Hero from './components/Hero';
 import ThreatLandscape from './components/ThreatLandscape';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
-import Universities from './components/Universities';
+
 import About from './components/About';
 import PlacementPreparation from './components/PlacementPreparation';
 import ProjectRecommendation from './components/ProjectRecommendation';
 import CareerRoadmap from './components/CareerRoadmap';
 import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
-import CTA from './components/CTA';
+
 import ResumeScanner from './components/ResumeScanner';
 import Marquee from './components/Marquee';
 import ChatModal from './components/ChatModal';
@@ -33,8 +33,8 @@ const Home = () => (
     <ThreatLandscape />
     <Features />
     <HowItWorks />
-    <Universities />
-    <CTA />
+
+
   </>
 );
 

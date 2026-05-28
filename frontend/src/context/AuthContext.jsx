@@ -1,6 +1,9 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import API_BASE from '../config/api';
 
+/**
+ * @type {React.Context<any>}
+ */
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
@@ -139,6 +142,9 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+/**
+ * @returns {any}
+ */
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

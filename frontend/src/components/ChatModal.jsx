@@ -310,7 +310,7 @@ const ChatModal = ({ onClose }) => {
         exit={{ opacity: 0, y: '100%', scale: 0.95 }}
         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
         className="fixed z-[100] flex flex-col overflow-hidden custom-chat-scrollbar
-                   bottom-0 left-0 w-full h-[85vh] rounded-t-3xl rounded-b-none
+                   bottom-0 left-0 w-full h-[100dvh] rounded-none
                    md:bottom-6 md:right-6 md:left-auto md:w-[400px] md:h-[620px] md:rounded-2xl
                    bg-gray-900/85 backdrop-blur-2xl border border-blue-500/30 shadow-[0_0_40px_rgba(59,130,246,0.15)]"
       >

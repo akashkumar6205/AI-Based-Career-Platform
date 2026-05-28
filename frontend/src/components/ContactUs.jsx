@@ -51,7 +51,7 @@ const ContactUs = () => {
         <div className="absolute bottom-[10%] right-[10%] w-[30%] h-[30%] rounded-full bg-emerald-500/10 blur-[100px]"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 w-full max-w-4xl flex-grow flex flex-col h-full">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 w-full max-w-4xl flex-grow flex flex-col h-full">
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

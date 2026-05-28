@@ -32,7 +32,7 @@ const Features = () => {
 
   return (
     <section id="features" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-6">
 
         {/* Pillar 2 */}
         <div id="resume-scanner">
