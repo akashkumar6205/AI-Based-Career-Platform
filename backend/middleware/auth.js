@@ -6,7 +6,11 @@ const authenticateToken = (req, res, next) => {
   
   if (!token) return res.status(401).json({ error: 'Access token required' });
   
-  const JWT_SECRET = process.env.JWT_SECRET || 'careershield_ai_super_secret_key_12345';
+  const JWT_SECRET = process.env.JWT_SECRET;
+  if (!JWT_SECRET) {
+    console.error('ERROR: JWT_SECRET is not defined in environment variables.');
+    return res.status(500).json({ error: 'Internal server error' });
+  }
   
   jwt.verify(token, JWT_SECRET, (err, user) => {
     if (err) return res.status(403).json({ error: 'Invalid or expired token' });
