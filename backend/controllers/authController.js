@@ -57,7 +57,7 @@ exports.login = async (req, res) => {
   try {
     const user = await User.findOne({ email: email.toLowerCase() });
     
-    if (!user || !bcrypt.compareSync(password, user.password)) {
+    if (!user || !user.password || !bcrypt.compareSync(password, user.password)) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
     

@@ -20,7 +20,15 @@ const SignupForm = ({ onSwitchToLogin, onClose, isModal = false }) => {
     }
     setError(null);
     setIsSubmitting(true);
-    
+
+    // In production, a real Google Sign-In SDK (e.g. @react-oauth/google) should be used.
+    // For development/testing, fall back to mock tokens.
+    if (import.meta.env.PROD) {
+      setIsSubmitting(false);
+      setError('Google Sign-In is not yet configured for production. Please use email/password.');
+      return;
+    }
+
     const mockEmail = email || "google.user@example.com";
     const mockIdToken = `mock-${mockEmail}`;
 

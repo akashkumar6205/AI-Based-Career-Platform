@@ -19,18 +19,26 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
-// Global Middlewares
 // Global Middlewares & CORS Protection
+// FRONTEND_URL can be a comma-separated list of allowed origins for production
 const allowedOrigins = [
-  process.env.FRONTEND_URL || 'http://localhost:5173',
-  'http://localhost:3000'
+  'http://localhost:5173',
+  'http://localhost:3000',
+  ...(process.env.FRONTEND_URL
+    ? process.env.FRONTEND_URL.split(',').map(u => u.trim())
+    : [])
 ];
+
+if (!process.env.FRONTEND_URL) {
+  console.warn('⚠️  FRONTEND_URL is not set. CORS will only allow localhost origins. Set it in .env for production.');
+}
 
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.warn(`CORS blocked request from origin: ${origin}`);
       callback(new Error('Blocked by CORS policy: Origin not allowed'));
     }
   },

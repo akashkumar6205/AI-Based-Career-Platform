@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
+import API_BASE from '../config/api';
 
 const ResumeScanner = () => {
   const [file, setFile] = useState(null);
@@ -62,7 +63,7 @@ const ResumeScanner = () => {
     formData.append('jobDescription', jd);
 
     try {
-      const response = await fetch('/api/analyze-resume', {
+      const response = await fetch(`${API_BASE}/api/analyze-resume`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

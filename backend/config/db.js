@@ -15,9 +15,9 @@ const connectDB = async () => {
         throw new Error('Missing MongoDB credentials. Set MONGODB_URI or individual MONGODB_USER, MONGODB_PASS_ENC, MONGODB_HOST, MONGODB_DB env vars.');
       }
 
-      // Decode the Base64-encrypted password at runtime
-      const password = Buffer.from(passEnc, 'base64').toString('utf-8');
-      mongoURI = `mongodb+srv://${user}:${password}@${host}/${db}?appName=Cluster0`;
+      // Decode the Base64-encrypted password at runtime and URI-encode for safe interpolation
+      const password = encodeURIComponent(Buffer.from(passEnc, 'base64').toString('utf-8'));
+      mongoURI = `mongodb+srv://${encodeURIComponent(user)}:${password}@${host}/${db}?appName=Cluster0`;
     }
 
     await mongoose.connect(mongoURI);
