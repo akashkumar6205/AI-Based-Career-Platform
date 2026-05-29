@@ -54,8 +54,10 @@ if (fs.existsSync(distPath)) {
 
 // API Routes
 const analysisRoutes = require('./routes/analysisRoutes');
+const profileRoutes = require('./routes/profileRoutes');
 
 app.use('/api', analysisRoutes);
+app.use('/api', profileRoutes);
 
 // Root Health Route & SPA Fallback Handler
 app.get('*', (req, res) => {
