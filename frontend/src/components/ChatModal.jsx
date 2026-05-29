@@ -11,7 +11,7 @@ const ONBOARDING_STEPS = {
   FREE_CHAT: 'free_chat',
 };
 
-
+const STREAM_OPTIONS = ['Computer Science', 'Information Technology', 'Electronics', 'Mechanical', 'Civil', 'Other'];
 const YEAR_OPTIONS = ['1st Year', '2nd Year', '3rd Year', '4th Year', 'Graduated'];
 
 const GOAL_OPTIONS = [
