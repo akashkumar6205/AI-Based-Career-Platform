@@ -20,7 +20,7 @@ const Footer = () => {
               <span className="text-xl font-bold tracking-tight text-white">CareerShield <span className="text-emerald-400">AI</span></span>
             </div>
             <p className="text-gray-400 leading-relaxed text-sm">
-              Your AI-powered career companion. Protecting students from scams. Powering them toward success.
+              Your AI-powered career companion. Powering them toward success.
             </p>
           </div>
           

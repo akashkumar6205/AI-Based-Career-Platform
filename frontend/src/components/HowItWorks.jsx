@@ -71,7 +71,7 @@ const HowItWorks = () => {
               📤
             </motion.div>
             <h3 className="text-xl font-bold mb-3 text-white">Upload or Paste</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">Drop your resume, paste a suspicious job link, or forward a sketchy recruiter email. We accept it all.</p>
+            <p className="text-gray-400 text-sm leading-relaxed">Drop your resume, paste, or forwaed a recruiter email. We accept it all.</p>
           </motion.div>
 
           {/* Connector 1 */}
