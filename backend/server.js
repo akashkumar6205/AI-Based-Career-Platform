@@ -53,10 +53,8 @@ if (fs.existsSync(distPath)) {
 }
 
 // API Routes
-const authRoutes = require('./routes/authRoutes');
 const analysisRoutes = require('./routes/analysisRoutes');
 
-app.use('/api/auth', authRoutes);
 app.use('/api', analysisRoutes);
 
 // Root Health Route & SPA Fallback Handler

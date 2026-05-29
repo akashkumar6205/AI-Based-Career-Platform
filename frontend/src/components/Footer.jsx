@@ -29,7 +29,6 @@ const Footer = () => {
             <ul className="space-y-4">
               <li><a href="#features" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">Features</a></li>
               <li><a href="/resume-scanner.html" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">Resume Scanner</a></li>
-              <li><a href="#scam-detector" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">Scam Detector</a></li>
             </ul>
           </div>
           
@@ -47,7 +46,6 @@ const Footer = () => {
             <ul className="space-y-4">
               <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">Privacy Policy</a></li>
               <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">Terms of Service</a></li>
-              <li><a href="#" className="text-red-400 hover:text-red-300 transition-colors text-sm font-medium">🚨 Report a Scam</a></li>
               <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">Contact Us</a></li>
             </ul>
           </div>

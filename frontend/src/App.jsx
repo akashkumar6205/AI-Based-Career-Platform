@@ -16,10 +16,6 @@ import Footer from './components/Footer';
 import ResumeScanner from './components/ResumeScanner';
 import Marquee from './components/Marquee';
 import ChatModal from './components/ChatModal';
-import AuthModal from './components/auth/AuthModal';
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
-import ProtectedRoute from './components/auth/ProtectedRoute';
 import { AnimatePresence } from 'framer-motion';
 import NotFound from './components/NotFound';
 import ScrollToTop from './components/ScrollToTop';
@@ -33,75 +29,35 @@ const Home = () => (
     <ThreatLandscape />
     <Features />
     <HowItWorks />
-
-
+    <Footer />
   </>
 );
 
 function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [isAuthOpen, setIsAuthOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 overflow-x-hidden font-sans">
       <ScrollToTop />
-      <Navbar 
-        onOpenChat={() => setIsChatOpen(true)} 
-        onOpenAuth={() => setIsAuthOpen(true)} 
-      />
+      <Navbar onOpenChat={() => setIsChatOpen(true)} />
       <main>
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactUs />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
 
-          {/* Protected Premium AI Routes */}
-          <Route 
-            path="/resume-scanner" 
-            element={
-              <ProtectedRoute>
-                <ResumeScanner />
-              </ProtectedRoute>
-            } 
-          />
-          <Route 
-            path="/placement-preparation" 
-            element={
-              <ProtectedRoute>
-                <PlacementPreparation />
-              </ProtectedRoute>
-            } 
-          />
-          <Route 
-            path="/project-recommendation" 
-            element={
-              <ProtectedRoute>
-                <ProjectRecommendation />
-              </ProtectedRoute>
-            } 
-          />
-          <Route 
-            path="/career-roadmap" 
-            element={
-              <ProtectedRoute>
-                <CareerRoadmap />
-              </ProtectedRoute>
-            } 
-          />
+          {/* Premium AI Routes (Now Public) */}
+          <Route path="/resume-scanner" element={<ResumeScanner />} />
+          <Route path="/placement-preparation" element={<PlacementPreparation />} />
+          <Route path="/project-recommendation" element={<ProjectRecommendation />} />
+          <Route path="/career-roadmap" element={<CareerRoadmap />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      <Footer />
       
       <AnimatePresence>
         {isChatOpen && <ChatModal onClose={() => setIsChatOpen(false)} />}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {isAuthOpen && <AuthModal onClose={() => setIsAuthOpen(false)} />}
       </AnimatePresence>
     </div>
   );

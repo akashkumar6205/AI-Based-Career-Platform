@@ -86,7 +86,7 @@ const Features = () => {
               <h3 className="text-2xl font-bold mb-4 text-white">Placement Preparation</h3>
               <p className="text-gray-400 mb-6 leading-relaxed">Ace your upcoming interviews with AI-powered mock interviews and tailor-made prep materials. Practice real-time responses and get instant, actionable feedback to sharpen your skills. Walk into every interview battle-tested.</p>
               <ul className="space-y-3 mb-8">
-                {['Personalized career path mapping', 'Audio & text mock interviews', 'Real-time answer feedback', 'Confidence & clarity scoring'].map((item, i) => (
+                {['Personalized career path mapping', 'Real-time answer feedback', 'Confidence & clarity scoring'].map((item, i) => (
                   <motion.li key={i} whileHover={{ x: 5 }} className="flex items-center gap-3 text-gray-300 transition-transform">
                     <svg className="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                     {item}

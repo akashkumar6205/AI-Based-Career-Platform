@@ -55,7 +55,7 @@ const ThreatLandscape = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Your Career Deserves <span className="gradient-text">Better Guidance.</span></h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">Students are more vulnerable than ever. Here's the reality no one talks about.</p>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">Helping students make safer and smarter career decisions.</p>
         </motion.div>
 
         <motion.div
@@ -70,10 +70,10 @@ const ThreatLandscape = () => {
             whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.15)" }}
             className="glass p-8 relative overflow-hidden group transition-colors duration-300 hover:border-emerald-500/50"
           >
-            <div className="text-5xl font-extrabold text-white mb-4">
-              <Counter target={1} suffix=" in 4" />
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+              Build Your Roadmap
             </div>
-            <p className="text-gray-300 leading-relaxed relative z-10">Online job postings are <strong className="text-white">ghost or fake jobs</strong> designed to harvest personal data or charge bogus fees.</p>
+            <p className="text-gray-300 leading-relaxed relative z-10">and explore opportunities</p>
             <motion.div
               className="absolute -right-4 -bottom-4 text-8xl opacity-10"
               whileHover={{ scale: 1.2, rotate: -10, opacity: 0.2 }}
@@ -88,10 +88,10 @@ const ThreatLandscape = () => {
             whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.15)" }}
             className="glass p-8 relative overflow-hidden group transition-colors duration-300 hover:border-emerald-500/50"
           >
-            <div className="text-5xl font-extrabold text-white mb-4">
-              <Counter target={300} suffix="%" />
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+              Step Ahead with Confidence
             </div>
-            <p className="text-gray-300 leading-relaxed relative z-10">Increase in <strong className="text-white">phishing emails targeting graduates</strong> — fake offer letters, malicious links, and identity theft at an all-time high.</p>
+            <p className="text-gray-300 leading-relaxed relative z-10">and unlock your potential</p>
             <motion.div
               className="absolute -right-4 -bottom-4 text-8xl opacity-10"
               whileHover={{ scale: 1.2, rotate: 10, opacity: 0.2 }}

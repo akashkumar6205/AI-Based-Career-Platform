@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '../context/AuthContext';
+
 import API_BASE from '../config/api';
 
 const ResumeScanner = () => {
@@ -12,7 +12,6 @@ const ResumeScanner = () => {
   const [analysisData, setAnalysisData] = useState(null);
   const [error, setError] = useState(null);
 
-  const { token } = useAuth();
 
   const handleFileDrop = (e) => {
     e.preventDefault();
@@ -66,7 +65,7 @@ const ResumeScanner = () => {
       const response = await fetch(`${API_BASE}/api/analyze-resume`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`
+        // 'Authorization': `Bearer ${token}`
         },
         body: formData
       });
