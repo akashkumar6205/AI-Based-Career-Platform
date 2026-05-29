@@ -72,12 +72,17 @@ const ResumeScanner = () => {
 
       clearInterval(interval);
 
-      if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.error || 'Failed to scan resume. Please try again.');
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Server is starting up or returned an unexpected response. Please try again in a moment.');
       }
 
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to scan resume. Please try again.');
+      }
+
       setAnalysisData(data);
       setStatus('results');
       animateScore(data.score);

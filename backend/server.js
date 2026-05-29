@@ -39,7 +39,7 @@ app.use(cors({
       callback(null, true);
     } else {
       console.warn(`CORS blocked request from origin: ${origin}`);
-      callback(new Error('Blocked by CORS policy: Origin not allowed'));
+      callback(null, false); // Standard way to disallow origin in cors package without throwing Express error
     }
   },
   credentials: true
@@ -73,6 +73,14 @@ app.get('*', (req, res) => {
       environment: process.env.NODE_ENV || 'production'
     });
   }
+});
+
+// Global Error Handler Middleware
+app.use((err, req, res, next) => {
+  console.error('Unhandled Error:', err);
+  res.status(err.status || 500).json({
+    error: err.message || 'Internal Server Error'
+  });
 });
 
 // Listen

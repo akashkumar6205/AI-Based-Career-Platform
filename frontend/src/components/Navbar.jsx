@@ -102,6 +102,12 @@ const Navbar = ({ onOpenChat }) => {
         body: JSON.stringify(profile),
       });
 
+      // Guard: ensure response is JSON before parsing (Render cold-start can return HTML)
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Server is starting up. Please try again in a moment.');
+      }
+
       const data = await response.json();
 
       if (!response.ok) {
@@ -141,7 +147,8 @@ const Navbar = ({ onOpenChat }) => {
     if (opening && savedProfile?.userId) {
       try {
         const response = await fetch(`${API_BASE}/api/profile/${encodeURIComponent(savedProfile.userId)}`);
-        if (response.ok) {
+        const contentType = response.headers.get('content-type');
+        if (response.ok && contentType && contentType.includes('application/json')) {
           const data = await response.json();
           const fetched = data.profile;
           const profileData = {
